@@ -1,0 +1,16 @@
+#N canvas 1680 29 1600 871 10;
+#X obj 207 262 dollarg;
+#X msg 207 242 0;
+#X obj 207 222 loadbang;
+#X obj 144 282 list-find-1;
+#X obj 144 262 inlet;
+#X obj 177 345 outlet;
+#X obj 144 303 sel -1;
+#X obj 177 324 bang;
+#X connect 0 0 3 1;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 6 0;
+#X connect 4 0 3 0;
+#X connect 6 1 7 0;
+#X connect 7 0 5 0;
