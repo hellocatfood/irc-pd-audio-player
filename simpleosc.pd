@@ -1,0 +1,37 @@
+#N canvas 53 107 933 998 10;
+#X obj 42 130 mtof;
+#X obj 45 57 hsl 128 15 0 127 0 1 empty empty empty -2 -6 0 8 -262144
+-1 -1 11600 1;
+#X obj 42 242 expr~ $v1 > $v2;
+#X obj 129 188 nbx 5 14 0 100 0 1 empty empty pulse_width_(0-100) 60
+6 0 10 -262144 -1 -1 37 256;
+#X obj 129 206 / 100;
+#X obj 48 8 inlet;
+#X obj 42 398 throw~ audio;
+#X obj 42 374 *~;
+#X obj 48 30 t f b;
+#X obj 59 346 line;
+#X obj 135 140 random 100;
+#X msg 56 307 1 200;
+#X msg 111 306 0 300;
+#X obj 80 272 del 200;
+#X obj 42 154 osc~;
+#X obj 42 77 - 0;
+#X connect 0 0 14 0;
+#X connect 1 0 15 0;
+#X connect 2 0 7 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 1;
+#X connect 5 0 8 0;
+#X connect 7 0 6 0;
+#X connect 8 0 1 0;
+#X connect 8 1 11 0;
+#X connect 8 1 10 0;
+#X connect 8 1 13 0;
+#X connect 9 0 7 1;
+#X connect 10 0 3 0;
+#X connect 11 0 9 0;
+#X connect 12 0 9 0;
+#X connect 13 0 12 0;
+#X connect 14 0 7 0;
+#X connect 15 0 0 0;
