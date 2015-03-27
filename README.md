@@ -1,13 +1,7 @@
-RACHMANIBOT
+IRC Audio Player
 ===========
 
-Version 1 for Public Domain Day 2015
-------------------------------------
-Uses a midi file of Sonata #2 pulled from [this site](http://www.rachmaninoffmidi.co.uk/)
-
-Allows the cutting of the midi file to be done via people chatting on irc.
-
-Built for use with a Korg Nanokontroller.
+Control audio by typing commands on irc
 
 Commands
 --------
@@ -26,3 +20,7 @@ In irc type the words to do the action
 * Wave wave WaveForm waveForm Waveform waveform - change waveform (sine, sawtooth or square wave)
 * faster Faster Fast fast - speed up playback
 * slower Slower Slow slow - slow down playback
+
+
+Uses abstrctions from mmb https://github.com/dotmmb/mmb
+Uses abstractions from defaultxr
