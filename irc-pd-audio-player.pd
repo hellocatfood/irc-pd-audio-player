@@ -46,19 +46,24 @@
 1;
 #X obj 191 -43 != 0;
 #X obj 191 12 sel 1 0;
-#N canvas 0 29 1600 871 connect 1;
+#N canvas 0 29 1600 871 connect 0;
 #X obj 200 160 inlet;
 #X msg 219 342 USER pdbot 8 * : IRCclient in Pd;
 #X msg 200 422 JOIN #botopera;
 #X obj 219 321 del 500;
 #X obj 200 401 del 750;
-#X msg 239 281 NICK Rachmanibot;
+#X msg 239 281 NICK dxr-rachmani;
 #X obj 200 261 t b b b;
 #X obj 200 475 s irc-raw-send;
 #X msg 227 202 connect irc.freenode.net 6667;
 #X obj 200 180 t b b;
 #X obj 200 241 del 2000;
 #X obj 227 221 s tcpclient;
+#X obj 459 150 r nick;
+#X msg 616 228 set \, add2 NICK \, add2 \$1;
+#X obj 492 217 r \$0-connected;
+#X obj 459 236 spigot;
+#X obj 459 177 t b a;
 #X connect 0 0 9 0;
 #X connect 1 0 7 0;
 #X connect 2 0 7 0;
@@ -72,6 +77,12 @@
 #X connect 9 0 10 0;
 #X connect 9 1 8 0;
 #X connect 10 0 6 0;
+#X connect 12 0 16 0;
+#X connect 13 0 5 0;
+#X connect 14 0 15 1;
+#X connect 15 0 5 0;
+#X connect 16 0 15 0;
+#X connect 16 1 13 0;
 #X restore 191 61 pd connect;
 #X obj 362 363 spigot;
 #X obj 362 229 list;
@@ -84,7 +95,7 @@
 #X obj 397 344 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 317 120 r tcpclient;
-#N canvas 1680 29 1600 871 disconnect 0;
+#N canvas 0 29 1600 871 disconnect 0;
 #X obj 384 215 inlet;
 #X msg 384 310 disconnect;
 #X msg 411 253 QUIT :bye-bye!;
@@ -123,6 +134,7 @@
 #X restore 305 42 pd send-msg;
 #X obj 305 98 moocow/any2string 0 13;
 #X obj 305 168 moocow/string2any;
+#X obj 75 22 s \$0-connected;
 #X connect 0 0 27 0;
 #X connect 1 0 25 0;
 #X connect 2 0 4 0;
@@ -133,6 +145,7 @@
 #X connect 5 0 7 0;
 #X connect 6 0 7 0;
 #X connect 7 0 9 0;
+#X connect 7 0 28 0;
 #X connect 8 0 7 0;
 #X connect 9 0 16 0;
 #X connect 9 0 10 0;
@@ -662,7 +675,7 @@
 #X obj 87 977 knob 32 32 0 0.1 0 0 empty empty empty 0 -8 0 8 -262144
 -1 -1 3100 1;
 #X obj 46 170 hsl 204 15 1000 20 1 0 empty empty empty 0 0 0 10 -257985
--1 -1 11223 1;
+-1 -1 9044 1;
 #X obj 43 210 s speed;
 #X obj 43 190 int;
 #X obj 43 70 loadbang;
@@ -681,7 +694,7 @@
 #X connect 4 0 0 0;
 #X connect 5 0 3 0;
 #X restore 53 486 pd btn;
-#N canvas 320 82 1600 871 connectme 0;
+#N canvas 0 29 1600 871 connectme 0;
 #X obj 175 218 l2s;
 #X obj 175 308 drip;
 #X obj 141 188 list split 3;
@@ -1240,6 +1253,16 @@ y z;
 #X obj 753 35 declare -path ./defaultxrs-pd-abstractions/;
 #X obj 753 55 declare -path ./mmb/;
 #X obj 219 1048 streamer;
+#N canvas 0 29 1600 871 nick 0;
+#X symbolatom 145 100 15 0 0 0 - - -;
+#X obj 145 119 s nick;
+#X obj 145 60 loadbang;
+#X msg 145 80 symbol rachmanibot;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X coords 0 -1 1 1 137 16 1 100 100;
+#X restore 328 58 pd nick;
 #X connect 0 0 2 0;
 #X connect 1 0 2 1;
 #X connect 2 0 52 0;
