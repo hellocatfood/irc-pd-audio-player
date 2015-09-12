@@ -1,12 +1,12 @@
-#N canvas 399 279 1600 871 10;
+#N canvas 604 131 1600 871 10;
 #X declare -path ./defaultxrs-pd-abstractions/;
 #X declare -path ./mmb/;
 #X obj 203 665 mtof;
-#N canvas 1076 589 450 300 wsel 0;
+#N canvas 1073 594 450 300 wsel 0;
 #X obj 120 120 cnv 15 70 35 empty empty empty 20 12 0 14 -261234 -66577
 0;
-#X obj 125 135 hradio 15 1 0 4 empty empty sine 0 -8 0 10 -262144 -1
--1 0;
+#X obj 125 135 hradio 15 1 0 4 empty empty square 0 -8 0 10 -262144
+-1 -1 2;
 #X msg 208 189 label sine;
 #X msg 223 210 label saw;
 #X msg 239 230 label square;
@@ -34,7 +34,7 @@
 #X obj 203 685 selectWaveform;
 #X obj 203 812 dac~;
 #X floatatom 203 371 5 0 0 0 - - -;
-#N canvas 212 97 1600 871 irc 0;
+#N canvas 314 191 1600 871 irc 0;
 #X obj 305 149 mrpeach/tcpclient;
 #X obj 318 12 inlet;
 #X obj 191 -85 inlet;
@@ -42,7 +42,7 @@
 #X obj 191 -64 route float start quit msg;
 #X msg 229 -43 1;
 #X msg 267 -43 0;
-#X obj 191 -8 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 191 -8 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 191 -43 != 0;
 #X obj 191 12 sel 1 0;
@@ -94,7 +94,7 @@
 #X msg 131 98 0;
 #X msg 398 325 1;
 #X obj 398 283 route float;
-#X obj 397 344 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 397 344 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 317 120 r tcpclient;
 #N canvas 53 82 1600 871 disconnect 0;
@@ -121,7 +121,7 @@
 #X connect 0 0 2 0;
 #X connect 2 0 1 0;
 #X restore 305 209 pd ping;
-#N canvas 1680 29 1600 871 send-msg 0;
+#N canvas 1680 50 1600 871 send-msg 0;
 #X obj 221 195 inlet;
 #X obj 221 294 outlet;
 #X obj 259 195 r send-msg;
@@ -173,7 +173,7 @@
 #X restore 516 108 pd irc;
 #X symbolatom 549 89 30 0 0 1 send_message - -;
 #X symbolatom 585 188 40 0 0 0 - - -;
-#N canvas 0 0 450 300 (subpatch) 0;
+#N canvas 0 50 450 300 (subpatch) 0;
 #X array sonata 11288 float 5;
 #A 0 0 65 63 61 58 53 49 46 41 39 37 34 22 35 89 65 77 82 53 61 58
 73 85 65 82 53 61 77 73 70 61 65 77 73 61 70 65 73 77 61 70 65 73 77
@@ -677,14 +677,14 @@
 #X obj 170 502 tabread sonata;
 #X obj 237 737 knob 32 32 0 0.1 0 0 empty empty empty 0 -8 0 8 -262144
 -1 -1 3100 1;
-#X obj 46 170 hsl 204 15 1000 20 1 0 empty empty empty 0 0 0 10 -257985
--1 -1 12215 1;
+#X obj 46 170 hsl 204 15 1000 10 1 0 empty empty empty 0 0 0 10 -257985
+-1 -1 10000 1;
 #X obj 43 210 s speed;
 #X obj 43 190 int;
 #X obj 43 70 loadbang;
 #X msg 43 92 115;
 #X obj 203 266 player;
-#N canvas 53 112 1600 871 connectme 0;
+#N canvas 53 122 1600 871 connectme 0;
 #X obj 175 218 l2s;
 #X obj 175 308 drip;
 #X obj 141 188 list split 3;
@@ -702,7 +702,7 @@
 #X connect 7 0 2 0;
 #X restore 516 168 pd connectme;
 #X obj 103 120 f;
-#N canvas 0 0 450 300 (subpatch) 0;
+#N canvas 0 50 450 300 (subpatch) 0;
 #X array nocturne 2032 float 3;
 #A 0 0 57 60 41 53 55 60 40 52 53 58 62 38 50 58 62 69 36 48 53 58
 62 41 53 55 60 40 52 53 58 62 38 50 58 62 69 36 48 53 58 62 41 53 55
@@ -796,7 +796,7 @@
 41 46 49 53 79 81 65 69 72 29 36 45;
 #X coords 0 0 2031 100 200 140 1 0 0;
 #X restore 734 297 graph;
-#N canvas 0 0 450 300 (subpatch) 0;
+#N canvas 0 50 450 300 (subpatch) 0;
 #X array polkade 3057 float 3;
 #A 0 0 63 65 63 62 64 63 65 63 61 65 63 62 64 63 62 63 65 63 65 63
 62 63 65 57 63 62 63 65 63 62 63 62 60 63 65 59 63 62 63 65 63 60 51
@@ -947,7 +947,7 @@
 #X floatatom 143 140 5 0 0 0 - - -;
 #X obj 509 215 cnv 15 160 60 empty empty empty 20 12 0 14 -232576 -66577
 0;
-#N canvas 317 186 1600 871 matchmsg 1;
+#N canvas 311 196 1600 871 matchmsg 0;
 #X obj 295 17 inlet;
 #X obj 433 652 outlet;
 #X obj 25 350 find-1 rewind;
@@ -1119,7 +1119,7 @@ y z;
 #X obj 186 522 tabread nocturne;
 #X obj 203 542 tabread polkade;
 #X obj 170 422 gate 3;
-#N canvas 1054 307 450 300 track 0;
+#N canvas 1051 312 450 300 track 0;
 #X msg 253 117 0;
 #X msg 253 147 1;
 #X msg 273 187 4;
@@ -1218,7 +1218,7 @@ y z;
 #X obj 284 593 f;
 #X obj 314 593 + 1;
 #X obj 284 615 % 3;
-#X obj 516 58 tgl 15 0 empty empty connect 17 7 0 10 -4034 -1 -1 1
+#X obj 516 58 tgl 15 0 empty empty connect 17 7 0 10 -4034 -1 -1 0
 1;
 #X obj 534 143 print irc;
 #X obj 753 35 declare -path ./defaultxrs-pd-abstractions/;
@@ -1235,6 +1235,45 @@ y z;
 #X coords 0 -1 1 1 137 16 1 100 100;
 #X restore 327 75 pd nick;
 #X obj 720 241 print letter;
+#X obj 328 782 osc~ 440;
+#X obj 396 236 r song;
+#N canvas 2467 1356 450 300 rand 0;
+#X obj 61 215 pack f f;
+#X obj 61 237 outlet;
+#X obj 106 165 + 8;
+#X obj 61 97 random;
+#X obj 94 77 r song;
+#X obj 61 17 r shuffle;
+#X floatatom 259 140 5 0 0 0 - - -;
+#X obj 61 119 t f f;
+#X obj 217 37 r reset;
+#X obj 162 72 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 244 160 f;
+#X obj 217 59 t b b;
+#X msg 217 81 0;
+#X obj 217 193 pack f f;
+#X obj 99 57 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X connect 0 0 1 0;
+#X connect 2 0 0 1;
+#X connect 3 0 7 0;
+#X connect 4 0 3 1;
+#X connect 4 0 6 0;
+#X connect 5 0 3 0;
+#X connect 6 0 10 1;
+#X connect 7 0 0 0;
+#X connect 7 1 2 0;
+#X connect 8 0 11 0;
+#X connect 9 0 11 0;
+#X connect 10 0 13 1;
+#X connect 11 0 12 0;
+#X connect 11 1 10 0;
+#X connect 12 0 13 0;
+#X connect 13 0 1 0;
+#X connect 14 0 3 0;
+#X restore 289 236 pd rand;
+#X obj 427 35 gemwin;
 #X connect 0 0 2 0;
 #X connect 1 0 2 1;
 #X connect 2 0 50 0;
@@ -1294,3 +1333,5 @@ y z;
 #X connect 57 0 56 1;
 #X connect 58 0 1 0;
 #X connect 59 0 5 0;
+#X connect 67 0 16 2;
+#X connect 68 0 16 1;
