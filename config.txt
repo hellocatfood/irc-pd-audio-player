@@ -1,5 +1,15 @@
-nick rachmanibot666
-# user coolbot
+# This is the configuration file for the Pd IRC bot.
+# Lines that begin with a # are comments and thus ignored.
+# You can't start a comment in the middle of a line.
+# Set an option by writing the name of the option, a space, and then the value of the option.
+# Possible options you can set: nick user realname network port channel
+# Keep in mind that this file will be read by Pd so you should avoid special characters like semicolons and commas.
+# The 'realname' variable can't have spaces BECAUSE I'M LAZY, OKAY??!
+# But yeah, anyway, remember to have fun.
+
+nick rachmanibot
+user coolbot
+realname HECK YEAH I'M A BOT WANNA FIGHT ABOUT IT
 network irc.freenode.net
 port 6667
 channel #botopera
